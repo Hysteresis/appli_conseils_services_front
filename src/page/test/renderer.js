@@ -7,33 +7,34 @@ document.querySelector('#home')
 
     
 
-    function citationLoad() {
+function citationLoad() {
 
-        fetch( 'https://pokeapi.co/api/v2/pokemon/2',{
-            headers: {
-                'Accept': 'application/json',
-                'Content': 'application/json'
-            }
-    
-        }).then((response) => {
-            return response.json();
-    
-        }).then((data) => {
-            // textContent = JSON.stringify(data);
-            console.log(data.forms[0].name)
+    fetch( 'https://localhost:8000/api/annonces/1',{
+        headers: {
+            'Accept': 'application/json',
+            'Content': 'application/json',
+            //TODO 'headers': {Authentication: 'Bearer {token}'}
+        }
 
-            console.log(data.height)
+    }).then((response) => {
+        return response.json();
 
-            let pokemon_name = document.querySelector('#pokemon_name')
-            pokemon_name.innerHTML = data.forms[0].name
-            let pokemon_height = document.querySelector('#pokemon_height')
-            pokemon_height.innerHTML = data.height
-        })
-    
-    
-    }
-    
+    }).then((data) => {
 
-    citationLoad();
+        console.log(data.title)
+        console.log(data.description)
+
+        let title = document.querySelector('#title')
+        title.innerHTML = data.title
+        let description = document.querySelector('#description')
+        description.innerHTML = data.description
+        let degree = document.querySelector('#degree')
+        degree.innerHTML = data.degree
+        
+    })
+}
+
+
+citationLoad();
 
 

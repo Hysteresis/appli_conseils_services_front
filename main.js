@@ -73,19 +73,20 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
 
+
+//? Création des pages
+ipcMain.on('page-home', (event, args) => {
+    createMainWindow();
+});
+
 ipcMain.on('page-test', (event, args) => {
     createTestWindow();
     winArray['index'].close();
 });
 
-ipcMain.on('page-home', (event, args) => {
-    createMainWindow();
-});
-
 ipcMain.on('page_3', (event, args) => {
     createPage3Window();
     winArray['index'].close();
-    
 });
 
 
