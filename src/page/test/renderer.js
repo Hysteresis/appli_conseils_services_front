@@ -7,36 +7,36 @@ document.querySelector('#home')
 
     
 
-function citationLoad() {
+// function citationLoad() {
 
 
-    const token = ''
-    fetch( 'https://localhost:8000/api/annonces/1',{
-        headers: {
-            'Accept': 'application/json',
-            'Content': 'application/json',
-            'Authorization': 'Bearer ' + token
-        }
+//     const token = ''
+//     fetch( 'https://localhost:8000/api/annonces/1',{
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content': 'application/json',
+//             'Authorization': 'Bearer ' + token
+//         }
 
-    }).then((response) => {
-        return response.json();
+//     }).then((response) => {
+//         return response.json();
 
-    }).then((data) => {
+//     }).then((data) => {
 
-        console.log(data.title)
-        console.log(data.description)
+//         console.log(data.title)
+//         console.log(data.description)
 
-        let title = document.querySelector('#title')
-        title.innerHTML = data.title
-        let description = document.querySelector('#description')
-        description.innerHTML = data.description
-        let degree = document.querySelector('#degree')
-        degree.innerHTML = data.degree
+//         let title = document.querySelector('#title')
+//         title.innerHTML = data.title
+//         let description = document.querySelector('#description')
+//         description.innerHTML = data.description
+//         let degree = document.querySelector('#degree')
+//         degree.innerHTML = data.degree
         
-    })
-}
+//     })
+// }
 
 
-citationLoad();
+// citationLoad();
 
 

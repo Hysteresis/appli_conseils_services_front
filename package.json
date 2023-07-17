@@ -9,7 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "author": "marine bertin",
+  "author": "Hermancia et Pierre",
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^6.2.1",
