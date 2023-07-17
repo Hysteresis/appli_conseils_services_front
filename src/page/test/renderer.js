@@ -9,11 +9,13 @@ document.querySelector('#home')
 
 function citationLoad() {
 
+
+    const token = ''
     fetch( 'https://localhost:8000/api/annonces/1',{
         headers: {
             'Accept': 'application/json',
             'Content': 'application/json',
-            //TODO 'headers': {Authentication: 'Bearer {token}'}
+            'Authorization': 'Bearer ' + token
         }
 
     }).then((response) => {
