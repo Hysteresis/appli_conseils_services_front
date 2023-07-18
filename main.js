@@ -1,7 +1,9 @@
 const { app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
+
 let winArray = [];
 console.log('main js')
+
 function createMainWindow() {
     winArray['index'] = new BrowserWindow({
         width: 1200,
@@ -18,11 +20,10 @@ function createMainWindow() {
     winArray['index'].webContents.openDevTools();
 }
 
-function createTestWindow(){
-    winArray['test'] = new BrowserWindow({
+function createAdWindow(){
+    winArray['ad'] = new BrowserWindow({
         width: 1200,
         height: 900,
-        // icon: path.join(__dirname, 'assets/img/kaamelott-logo.jpg'),
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -30,10 +31,9 @@ function createTestWindow(){
         }
     })
 
-    winArray['test'].loadFile(path.join(__dirname, 'src/page/test/index.html')).then(r => console.log(r));
-    winArray['test'].webContents.openDevTools();
+    winArray['ad'].loadFile(path.join(__dirname, 'src/page/ad/index.html')).then(r => console.log(r));
+    winArray['ad'].webContents.openDevTools();
 }
-
 
 function createPage3Window(){
     winArray['page_3'] = new BrowserWindow({
@@ -79,8 +79,8 @@ ipcMain.on('page-home', (event, args) => {
     createMainWindow();
 });
 
-ipcMain.on('page-test', (event, args) => {
-    createTestWindow();
+ipcMain.on('page-ad', (event, args) => {
+    createAdWindow();
     winArray['index'].close();
 });
 

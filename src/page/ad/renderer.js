@@ -1,16 +1,16 @@
 const { ipcRenderer } = require('electron');
-import token from '../../../login.js';
 
-console.log('====>  test/renderer js  <====  ')
+console.log('====>  ad/renderer js  <====  ')
+
 document.querySelector('#home')
     .addEventListener('click', () => {
         ipcRenderer.send('page-home');
     });
 
-    
 
-function citationLoad() {
-
+function getAd(token) {
+    token = localStorage.getItem('token');
+    console.log("token: " + token)
     fetch( 'https://localhost:8000/api/annonces/1',{
         headers: {
             'Accept': 'application/json',
@@ -34,9 +34,17 @@ function citationLoad() {
         degree.innerHTML = data.degree
         
     })
+    .then((data) => {
+        console.log(data);
+        // localStorage.setItem('token', data.token);
+        // ipcRenderer.send('token', data.token); // Envoie du token à la fenêtre de rendu principale
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 }
 
 
-citationLoad();
+getAd();
 
 
