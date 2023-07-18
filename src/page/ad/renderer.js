@@ -8,14 +8,14 @@ document.querySelector('#home')
     });
 
 
-function getAd(token) {
-    token = localStorage.getItem('token');
+function getAd() {    
+    const token = localStorage.getItem('token');
     console.log("token: " + token)
     fetch( 'https://localhost:8000/api/annonces/1',{
         headers: {
             'Accept': 'application/json',
             'Content': 'application/json',
-            'Authorization': 'Bearer ' + token
+            'Authorization': 'bearer ' + token
         }
 
     }).then((response) => {
